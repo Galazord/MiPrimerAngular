@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'form-view',
@@ -14,7 +14,14 @@ export class FormView {
     private _builder: FormBuilder
   ){
     this.signupForm = this._builder.group({
-      
+      name: [""],
+      user: ["", Validators.required],
+      email: ["", Validators.compose([Validators.email, Validators.required])],
+      passw: ["", Validators.required]
     })
+  }
+
+  sendForm(values: any) {
+    console.log("sendForm: ", values);
   }
 }
