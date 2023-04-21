@@ -20,7 +20,7 @@ export class FormView {
       passw: ["", Validators.required]
     })
   }
-
+  
   sendForm(values: any) {
     console.log("sendForm: ", values);
   }

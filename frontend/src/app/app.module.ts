@@ -9,6 +9,10 @@ import { FormView } from './components/form-view/form-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MiDirectivaDirective } from './directives/mi-directiva.directive';
+import { SubjectComponent } from './components/subjects/subject/subject.component';
+import { BehaviourSubjectComponent } from './components/subjects/behaviour-subject/behaviour-subject.component';
+import { ReplaySubjectComponent } from './components/subjects/replay-subject/replay-subject.component';
+import { AsyncSubjectComponent } from './components/subjects/async-subject/async-subject.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +20,10 @@ import { MiDirectivaDirective } from './directives/mi-directiva.directive';
     MiComponente,
     FormView,
     MiDirectivaDirective,
+    SubjectComponent,
+    BehaviourSubjectComponent,
+    ReplaySubjectComponent,
+    AsyncSubjectComponent,
   ],
   imports: [
     MatFormFieldModule,
