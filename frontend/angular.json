@@ -33,7 +33,12 @@
               "src/styles.sass"
             ],
             "scripts": [
-            ]
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/shared"
+              ]
+            }
           },
           "configurations": {
             "production": {

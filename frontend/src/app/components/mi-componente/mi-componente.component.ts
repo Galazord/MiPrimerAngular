@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Usuario, UserType } from '../../common/interfaces';
 
 // Añadir el decorador (no poner ; al final)
@@ -30,4 +30,14 @@ export class MiComponente {
 
     console.log("Mi componente cargado !!", this.user);
   }
+
+  // @ViewChild
+  @ViewChild('nombre', { static: true }) nombre!: ElementRef;
+
+  ngOnInit() {
+    console.log("Valor del input ViewChild: ", this.nombre.nativeElement.value);
+    this.nombre.nativeElement.value = 'Alberto'
+    console.log("Cambiar input ViewChild: ", this.nombre.nativeElement.value);
+  }
+
 }

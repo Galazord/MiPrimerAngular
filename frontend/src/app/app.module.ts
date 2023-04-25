@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MiComponente } from './components/mi-componente/mi-componente.component';
@@ -13,6 +14,8 @@ import { SubjectComponent } from './components/subjects/subject/subject.componen
 import { BehaviourSubjectComponent } from './components/subjects/behaviour-subject/behaviour-subject.component';
 import { ReplaySubjectComponent } from './components/subjects/replay-subject/replay-subject.component';
 import { AsyncSubjectComponent } from './components/subjects/async-subject/async-subject.component';
+import { SearchComponent } from './components/search/search.component';
+
 
 @NgModule({
   declarations: [
@@ -24,13 +27,15 @@ import { AsyncSubjectComponent } from './components/subjects/async-subject/async
     BehaviourSubjectComponent,
     ReplaySubjectComponent,
     AsyncSubjectComponent,
+    SearchComponent,
   ],
   imports: [
     MatFormFieldModule,
     MatSelectModule,
     BrowserModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
