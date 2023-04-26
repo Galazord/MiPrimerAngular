@@ -473,15 +473,20 @@
 
 </div>
 
-<!-- Pruebas con componentes -->
+<!-- Pruebas con componentes
 <mi-componente></mi-componente>
 <form-view></form-view>
 <subject></subject>
 <behaviour-subject></behaviour-subject>
 <replay-subject></replay-subject>
-<search></search> <!-- (search)="handleSearch($event)" -->
+<search (search)="handleSearch($event)"></search>
 
-
+<ul>
+  <li *ngFor="let usuario of usuarios | search:filtro_valor">{{ usuario.name }}</li>
+</ul>
+ -->
+ 
+<router-outlet></router-outlet>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->

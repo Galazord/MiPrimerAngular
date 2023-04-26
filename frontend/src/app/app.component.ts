@@ -9,9 +9,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Mi frontend de Angular';
 
-  handleSearch(value: string){
-    console.log("value: ", value)
+  handleSearch(value: String){
+    //console.log("value: ", value)
+    this.filtro_valor = value
   }
+
+  filtro_valor = new String
 
   constructor(
     private _http: HttpClient
@@ -42,4 +45,15 @@ export class AppComponent {
     console.error("Error: ", err);
     console.error("Error status: ", err.status);
   }
+
+  ngOnInit() {
+    this._http.get('https://jsonplaceholder.typicode.com/users', {
+      headers: {'Content-Type': 'application/json'},
+      responseType: 'json'
+    }).subscribe(
+      (users: any) => this.usuarios = users
+    );
+  }
+
+  usuarios = []
 }

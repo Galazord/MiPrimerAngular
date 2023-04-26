@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -15,7 +16,26 @@ import { BehaviourSubjectComponent } from './components/subjects/behaviour-subje
 import { ReplaySubjectComponent } from './components/subjects/replay-subject/replay-subject.component';
 import { AsyncSubjectComponent } from './components/subjects/async-subject/async-subject.component';
 import { SearchComponent } from './components/search/search.component';
+import { SearchPipe } from './pipes/search.pipe';
+import { RouterModule, Routes } from '@angular/router';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
+const rutas: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'profile'
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  }
+]
 
 @NgModule({
   declarations: [
@@ -28,6 +48,9 @@ import { SearchComponent } from './components/search/search.component';
     ReplaySubjectComponent,
     AsyncSubjectComponent,
     SearchComponent,
+    SearchPipe,
+    ProfileComponent,
+    DashboardComponent,
   ],
   imports: [
     MatFormFieldModule,
@@ -36,6 +59,8 @@ import { SearchComponent } from './components/search/search.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatInputModule,
+    RouterModule.forRoot(rutas, { })
   ],
   providers: [],
   bootstrap: [AppComponent]
