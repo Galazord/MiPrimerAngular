@@ -1,1 +1,21 @@
-<p>profile works!</p>
+<form [formGroup]="perfilForm" (submit)="guardar(perfilForm.value)">
+    <mat-form-field appearance="outline">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="user" maxlength="20">
+        <mat-hint align="end">{{ perfilForm.value.user.lenght }} / 20</mat-hint>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" maxlength="20">
+        <mat-hint align="end">{{ perfilForm.value.nombre.lenght }} / 20</mat-hint>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" maxlength="30">
+        <mat-hint align="end">{{ perfilForm.value.email.lenght }} / 30</mat-hint>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" [disabled]="perfilForm.invalid">Guardar</button>
+</form>

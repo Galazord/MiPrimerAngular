@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -20,12 +21,23 @@ import { SearchPipe } from './pipes/search.pipe';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardUsersComponent } from './components/dashboard-users/dashboard-users.component';
+import { HeaderComponent } from './components/header/header.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { LoginComponent } from './components/login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HeaderGuardComponent } from './components/header-guard/header-guard.component';
+
 
 const rutas: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'profile'
+    redirectTo: 'inicio'
+  },
+  {
+    path: 'inicio',
+    component: InicioComponent
   },
   {
     path: 'profile',
@@ -33,7 +45,18 @@ const rutas: Routes = [
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    children: [
+      /* {
+        path: '',
+        pathMatch: 'prefix',
+        redirectTo: 'users'
+      }, */
+      {
+        path: 'users',
+        component: DashboardUsersComponent
+      },
+    ]
   }
 ]
 
@@ -51,6 +74,11 @@ const rutas: Routes = [
     SearchPipe,
     ProfileComponent,
     DashboardComponent,
+    DashboardUsersComponent,
+    HeaderComponent,
+    InicioComponent,
+    LoginComponent,
+    HeaderGuardComponent,
   ],
   imports: [
     MatFormFieldModule,
@@ -60,7 +88,13 @@ const rutas: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     MatInputModule,
-    RouterModule.forRoot(rutas, { })
+    MatButtonModule,
+/*     RouterModule.forRoot(rutas, {
+      enableTracing: true,
+      paramsInheritanceStrategy: 'always', // Los parámetros del padre lo heredan los hijos
+      useHash: true // Cuando no encuentre un archivo redirija al html
+    }), */
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

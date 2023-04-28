@@ -484,9 +484,15 @@
 <ul>
   <li *ngFor="let usuario of usuarios | search:filtro_valor">{{ usuario.name }}</li>
 </ul>
- -->
+
  
-<router-outlet></router-outlet>
+<app-header></app-header>
+
+
+<app-header-guard></app-header-guard>
+<router-outlet></router-outlet> 
+-->
+
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
