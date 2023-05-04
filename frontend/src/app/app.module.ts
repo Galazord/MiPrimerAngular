@@ -27,6 +27,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderGuardComponent } from './components/header-guard/header-guard.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 const rutas: Routes = [
@@ -79,6 +80,7 @@ const rutas: Routes = [
     InicioComponent,
     LoginComponent,
     HeaderGuardComponent,
+    LoaderComponent,
   ],
   imports: [
     MatFormFieldModule,
